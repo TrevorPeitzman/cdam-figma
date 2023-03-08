@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { API, graphqlOperation } from 'aws-amplify'
-import { Container, Typography, Box } from '@mui/material';
+import { Container, Typography, Box, Button } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { getChecklist } from '../graphql/queries.js'
 import {
@@ -46,6 +46,9 @@ function CommandDetail() {
                 {/* <button onClick={getCommandName}>View Checklists</button> */}
 
 
+            </Container>
+            <Container maxWidth="sm" sx={{ bgcolor: '#D3D3D3', pt: 6, pb: 6 }}>
+                <Button >Button</Button>
             </Container>
         </Box>
     );
