@@ -1,0 +1,21 @@
+type ChecklistItem @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  itemName: String!
+  completion: Boolean!
+  mandatory: Boolean
+  description: String
+  reference: String
+  tier: Float
+  responsibleParty: String
+  checklistID: ID! @index(name: "byChecklist")
+}
+
+type Checklist @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  commandName: String!
+  commandPOC: AWSEmail!
+  percentCompletion: Float!
+  lastEdited: AWSDateTime!
+  ChecklistItems: [ChecklistItem] @hasMany(indexName: "byChecklist", fields: ["id"])
+}
+ 
